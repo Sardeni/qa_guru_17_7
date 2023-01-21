@@ -15,7 +15,7 @@ public class GithubSearchTest {
     })
     void csvTest(String searchQuery, String nameRepo) {
         open("https://github.com/");
-        $("[data-test-selector=nav-search-input]").setValue(searchQuery).pressEnter();
+        $("[name=q]").setValue(searchQuery).pressEnter();
         $$("ul.repo-list li").first().$("a").
                 shouldHave(text(nameRepo));
 
